@@ -17,7 +17,8 @@ Route::post('User/applyProject','api/User/applyProject');
 Route::post('User/modifyInfo','api/User/modifyInfo');
 Route::get('Project/find','api/Project/findAllProject');
 Route::post('findAllProjectPeople','api/Project/findAllProjectPeople');
-
+Route::post('findPersonInfo','api/User/findPersonInfo');
+Route::post('userQuit','api/Project/userQuit');
 
 
 Route::rule('s2','api/Common/index2');

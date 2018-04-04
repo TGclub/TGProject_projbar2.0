@@ -57,6 +57,9 @@ class Common extends Controller{
                 'user_lable' => ['max'=>'50'],
                 'user_phone_number' => ['number','max'=>'20']
              ),
+             'findpersoninfo'=>array(
+                'user_found_id' =>['require','integer']
+             ),
         ),
         'Suggestion' =>array(
             'savesuggestion'=>array(
@@ -74,6 +77,9 @@ class Common extends Controller{
             ),
             'findallprojectpeople'=>array(
                 'project_id'=> ['require','integer'],
+            ),
+            'userquit'=>array(
+                'project_id'=>['require','integer'],
             ),
         ),
     );

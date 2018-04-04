@@ -24,6 +24,58 @@ class User extends Common
         ;
     }
     /**
+     * 寻找个人信息,项目内成员多一个联系方式
+     * 需要有查找人id与被查找信息者id
+     * 方法是取全部查找人所在项目与全部被查找人所在项目
+     * 然后对比是否有存在同一个项目，如果有，那么返回的信息带联系方式
+     */
+    public function findPersonInfo()
+    {
+        $res = $this -> check_user();  //先判断这个用户是否存在
+        if(!empty($res))
+        return $res;
+        $userFind =Db::name('project_member') 
+        ->where([
+            'user_id' => $this -> userInfo['user_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','<',5)
+        ->select();
+        $userFound =Db::name('project_member') 
+        ->where([
+            'user_id' => $this -> params['user_found_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','<',5)
+        ->select();
+        $isReturnContact = 0;
+        for($id=0;$id<count($userFind,0);$id++){  //筛选出的项目已经全部有权查看联系方式了
+            for($id2=0;$id2<count($userFound,0);$id2++){ 
+                if($userFind[$id]['project_id'] == $userFound[$id2]['project_id']){
+                    $isReturnContact = 1;
+                }
+            }
+        }
+        $userFoundInfo = Db::name('user') 
+        ->where([
+            'user_id' =>  $this -> params['user_found_id']
+        ])
+        ->find(); //这里选择要返回的信息
+        $returnUserInfo['user_sex']=$userFoundInfo['user_sex'];
+        $returnUserInfo['user_github_url']=$userFoundInfo['user_github_url'];
+        $returnUserInfo['user_blog_url']=$userFoundInfo['user_blog_url'];
+        $returnUserInfo['user_more_information']=$userFoundInfo['user_more_information'];
+        $returnUserInfo['user_role']=$userFoundInfo['user_role'];
+        $returnUserInfo['user_lable']=$userFoundInfo['user_lable'];
+        if($isReturnContact == 1){
+        $returnUserInfo['user_wx']=$userFoundInfo['user_wx'];
+        $returnUserInfo['user_email']=$userFoundInfo['user_email'];
+        $returnUserInfo['user_phone_number']=$userFoundInfo['user_phone_number'];
+        $returnUserInfo['user_qq']=$userFoundInfo['user_qq'];
+        }
+        return json(['code'=> 200, 'msg' => '成功查看该成员基本信息','data'=>$returnUserInfo]);
+    }
+    /**
      * 判断该行为是否可以修改，30s内的行为不可以重复发生
      */
     public function checkModify($conduct)
