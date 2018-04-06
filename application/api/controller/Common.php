@@ -60,6 +60,14 @@ class Common extends Controller{
              'findpersoninfo'=>array(
                 'user_found_id' =>['require','integer']
              ),
+             'promotepower'=>array(
+                'user_promoted_id' => ['require','integer'],
+                'project_id' => ['require','integer'],
+             ),
+             'reducepower'=>array(
+                'user_reduced_id' => ['require','integer'],
+                'project_id' => ['require','integer'],
+             ),
         ),
         'Suggestion' =>array(
             'savesuggestion'=>array(
@@ -76,10 +84,20 @@ class Common extends Controller{
                 'is_a' => ['max'=>20],
             ),
             'findallprojectpeople'=>array(
-                'project_id'=> ['require','integer'],
+                'project_id' => ['require','integer'],
             ),
             'userquit'=>array(
-                'project_id'=>['require','integer'],
+                'project_id' => ['require','integer'],
+                'quit_reason' => ['max'=>'140'],
+            ),
+        ),
+        'Message' =>array(
+            'sentmessage'=>array(
+                'project_id' => ['require'], //群发消息必须的项目id
+                'sent_message_content' => ['require','max'=>'150'], //群发消息的对象
+            ),
+            'getappmessage'=>array(
+                
             ),
         ),
     );

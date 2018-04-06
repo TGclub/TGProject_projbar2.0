@@ -19,6 +19,10 @@ Route::get('Project/find','api/Project/findAllProject');
 Route::post('findAllProjectPeople','api/Project/findAllProjectPeople');
 Route::post('findPersonInfo','api/User/findPersonInfo');
 Route::post('userQuit','api/Project/userQuit');
+Route::post('sentMessage','api/Message/sentMessage');
+Route::get('getAppMessage','api/Message/getAppMessage');
+Route::post('promotePower','api/User/promotePower');
+Route::post('reducePower','api/User/reducePower');
 
 
 Route::rule('s2','api/Common/index2');

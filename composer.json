@@ -24,7 +24,9 @@
         "topthink/think-queue": "1.*",
         "topthink/think-migration": "1.*",
         "topthink/think-oracle": "1.*",
+        "qcloudsms/qcloudsms_php": "^0.1.2", 
         "qiniu/php-sdk": "^7.2"
+        
     },
     "autoload": {
         "psr-4": {

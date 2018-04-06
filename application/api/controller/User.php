@@ -203,9 +203,105 @@ class User extends Common
             echo $file->getError();
         }    
     }
-    public function save_suggestion_image()
+    /**
+     *提升权限
+     *promotePower
+     */
+    public function promotePower()
     {
-        
+        $isLogin = $this -> check_user();  //先判断这个用户是否存在
+        if(!empty($isLogin))
+        return $isLogin;
+
+        $result= Db::name('project_member') //找到对应项目判定其是否为发起者
+        ->where([
+            'user_id' => $this -> userInfo['user_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','=',1)
+        ->find();
+        if(!$result)
+        return $this ->_json(['error'=>'权限操作失败','code'=>400]);
+
+        $result= Db::name('project_member') //找到对应项目判定其是否为发起者
+        ->where([
+            'user_id' => $this -> params['user_promoted_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','>',2)
+        ->find();
+        if(!$result)
+        return $this ->_json(['error'=>'被提升者出现错误','code'=>400]);
+
+        $result = Db::name('project_member') //找到对应用户并提升权限
+        ->where([
+            'user_id' => $this -> params['user_promoted_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->update([
+            'user_status' => '2',
+        ]);
+        if(!$result)
+        return $this ->_json(['error'=>'权限提升失败','code'=>400]);
+        return json(['code'=> 200, 'msg' => '权限提升成功','data'=>
+        [
+            'user_id' => $this -> userInfo['user_id'],
+            'project_id' => $this -> params['project_id'],
+            'user_promoted_id' => $this -> params['user_promoted_id'],
+        ]]);
+    }
+    /**
+     *降低权限
+     *reducePower
+     */
+    public function reducePower()
+    {
+        $isLogin = $this -> check_user();  //先判断这个用户是否存在
+        if(!empty($isLogin))
+        return $isLogin;
+
+        $result= Db::name('project_member') //找到对应项目判定其是否为发起者
+        ->where([
+            'user_id' => $this -> userInfo['user_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','=',1)
+        ->find();
+        if(!$result)
+        return $this ->_json(['error'=>'权限操作失败','code'=>400]);
+
+        $result= Db::name('project_member') //找到要降低者查看是否已经为管理员
+        ->where([
+            'user_id' => $this -> params['user_reduced_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->where('user_status','=',2)
+        ->find();
+        if(!$result)
+        return $this ->_json(['error'=>'被降级者出现错误','code'=>400]);
+
+        $result = Db::name('project_member') //找到对应用户并提升权限
+        ->where([
+            'user_id' => $this -> params['user_reduced_id'],
+            'project_id' => $this -> params['project_id'],
+            'status' => 1,
+        ])
+        ->update([
+            'user_status' => '3',
+        ]);
+        if(!$result)
+        return $this ->_json(['error'=>'权限降级失败','code'=>400]);
+        return json(['code'=> 200, 'msg' => '权限降级成功','data'=>
+        [
+            'user_id' => $this -> userInfo['user_id'],
+            'project_id' => $this -> params['project_id'],
+            'user_reduced_id' => $this -> params['user_reduced_id'],
+        ]]);
     }
     public function modifyContactInformation()
     {
