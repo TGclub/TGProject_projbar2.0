@@ -23,7 +23,6 @@ class QiniuClient
 		$data['file'] = "@$filePath";
 		$data['token'] = $uploadToken;
 		if($key) $data['key'] = $key;
-		 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, self::UP_HOST);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

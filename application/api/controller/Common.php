@@ -41,6 +41,9 @@ class Common extends Controller{
                 'user_pwd'=>['require']
                // 'user_suggestion_image'=>'require|image|fileSize:1000000|fileExt:jpg,png,bmp,jpeg'
             ),
+            'bindphone'=>array(
+
+            ),
             'applyproject'=>array(
                 'project_id' =>['require','integer'],
              ),
@@ -99,6 +102,24 @@ class Common extends Controller{
             'getappmessage'=>array(
                 
             ),
+            'shortmessage'=>array(
+                'phone' => ['require','length:11','number'],
+            ),
+            'sentemail'=>array(
+                'email' => ['require','email'],
+            ),
+            'checkemail'=>array(
+                'identify_code'=> ['require','length:6','number'],
+            ),
+            'checkshortmessage'=>array(
+                'identify_code'=> ['require','length:6','number'],
+            ),
+        ),
+        'Find' =>array(
+            'normalfindpeople'=>array(
+                'user_role' => ['require','number'], //群发消息必须的项目id
+                'user_lable' => ['require','number'], //群发消息的对象
+            ),
         ),
     );
 
@@ -124,7 +145,9 @@ class Common extends Controller{
     // //         ),
     // //     ),
     // // );
-
+    /**
+     * 初始化获取信息
+     */
      public function _initialize(){
         parent::_initialize();
         $this -> request = Request::instance();
@@ -173,7 +196,9 @@ class Common extends Controller{
      //   $this -> params = Request::instance()->param();
         return json($this -> result);
     }
-
+    /**
+     * 返回格式
+     */
     public function _json($array,$code=0)
     {
          if($code>0 && $code!=200 && $code!=204){

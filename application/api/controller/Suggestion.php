@@ -22,8 +22,8 @@ class Suggestion extends Common
     }
     public function save()
     {
-    $accessKey='WXasSv_MzF-G3qDcX5ZbTJ3m6GLIua7ipxLaQgzc';
-    $secretKey='jzjNiU0bDNhoND0iSW0j33uacWzHa1MwRVliBLNv';
+    $accessKey=config('qiniu.accesskey');
+    $secretKey=config('qiniu.secretkey');
     //$auth = new Auth($accessKey, $secretKey);
     $auth = new Auth($accessKey, $secretKey);
     $bucket = 'yelengaaa';

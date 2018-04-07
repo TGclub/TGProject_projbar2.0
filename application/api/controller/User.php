@@ -183,6 +183,9 @@ class User extends Common
                 ]
             ]);
     }
+    /**
+     * 储存意见
+     */
     public function saveSuggestion() //路由调用的需要public，只有内部调用才是protect
     {
         $file = request()->file('user_suggestion_image');
@@ -303,8 +306,17 @@ class User extends Common
             'user_reduced_id' => $this -> params['user_reduced_id'],
         ]]);
     }
+    /**
+     * 修改个人联系信息
+     */
     public function modifyContactInformation()
     {
         return json($this -> params);
+    }
+
+
+    public function bindPhone()
+    {
+        ;
     }
 }

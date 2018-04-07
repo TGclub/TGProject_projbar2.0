@@ -2,6 +2,7 @@
 namespace app\api\controller;
 
 Vendor('qiniu.php-sdk.autoload.php'); //tp5是这样引入vendor包的
+require "SentShortMessage.php";
 use think\Controller;
 use think\Db;
 use Qiniu\Auth;
@@ -125,5 +126,203 @@ class Message extends Common
             unset($result[$id]['app_message_status']);
        }
        return json(['code'=> 200, 'msg' => '获取用户信息成功','data'=> $result]);
+    }
+    
+    /**
+     * 发送短信或者邮件
+     * @param int $type 0表示手机短信，1表示邮件
+     */
+    public function sentInfo($type)
+    {
+        $isLogin = $this -> check_user();  //先判断这个用户是否存在
+        if(!empty($isLogin))
+        return $isLogin;
+        //查60s内是否有发和1小时是否超过5次
+        $result= Db::name('identify_code') //先找到其30s内是否有发送过，如果有，则定为过于频繁
+        ->where([
+            'identify_code_receiver_id' => $this -> userInfo['user_id'],
+            'identify_code_type' => $type,
+        ])
+        ->order('identify_code_create_at','desc') //desc为按照时间最近的顺序给出
+        ->limit(10)
+        ->select();
+        if(count($result,0)>=1){//有一条信息，则判其是否在30s内发送过
+            if(strtotime($result[0]['identify_code_create_at'])+60>time())
+            $this ->_json(['error'=>'验证码发送间隔不能低于60s','code'=>400]);
+            if(count($result,0)>=5){ //有5条以上，判断其1hour内不能发送超过5条
+                if(strtotime($result[4]['identify_code_create_at'])+60*60>time())
+                $this ->_json(['error'=>'一小时内验证码发送次数最多为5次','code'=>400]);
+            }
+            if(count($result,0)==10){ //有10条，判断其1天最多10次
+                if(strtotime($result[9]['identify_code_create_at'])+24*60*60>time())
+                $this ->_json(['error'=>'一天内验证码发送次数最多为10次','code'=>400]);
+            }
+        }
+        $personInfo= Db::name('user') //获取该用户原个人信息，判断其换绑的手机号或者邮件与之前是否相同
+        ->where([
+            'user_id' => $this -> userInfo['user_id'],
+        ])->find();
+
+        //判断结束表示为可以发送验证码,每次发送均吧上一次验证码的效果设置为失效
+        if(count($result,0)>=1){
+            $loss = Db::name('identify_code')
+            ->where([
+                'identify_code_id' => $result['0']['identify_code_id'],
+                'identify_code_type' => $type, //最近一次邮件或者短信，别找错了
+            ])
+            ->update([
+                'identify_code_status' => '0'
+            ]);
+            //if(!$loss)
+            //$this ->_json(['error'=>'发送验证码出现错误','code'=>500]);
+        }
+        //验证完可以发送了
+        $random = randomNum(6); //获取随机数
+        if($type=='0'){
+        if($this -> userInfo['user_phone_number']==$this -> params['phone'])
+        return $this ->_json(['error'=>'原绑定手机号码与新绑定相同','code'=>400]);
+        $res = SentShortMessage::sentShortMessage($random,$this -> params['phone']);
+        if(empty($res))
+        return $this ->_json(['error'=>'发送验证码出现错误了','code'=>500]);
+        
+        }else{
+        if($this -> userInfo['user_email']==$this -> params['email'])
+        return $this ->_json(['error'=>'原绑定邮件与新绑定邮件相同','code'=>400]);
+        $res = SentShortMessage::sentEmail($random,$this -> params['email']);
+        if(empty($res))
+        return $this ->_json(['error'=>'发送验证码出现未知错误','code'=>500]);
+        }
+        if($type=='0')
+        $recevier = $this -> params['phone'];
+        else
+        $recevier = $this -> params['email'];
+
+        $sent = Db::name('identify_code')->insert([ //将发送信息的行为加入到数据表中
+            'identify_code_content' =>  $random,
+            'identify_code_receiver_id' => $this -> userInfo['user_id'],
+            'identify_code_type' => $type,
+            'identify_code_receiver' => $recevier,
+            'identify_code_last_prove' =>  date('Y-m-d H:i:s',time()),
+            'identify_code_create_at' => date('Y-m-d H:i:s',time()),
+        ]);
+        if(!$sent)
+        $this ->_json(['error'=>'发送验证码出现未知错误','code'=>500]);
+
+        return json(['code'=> 200, 'msg' => '发送验证码成功','data'=>
+        [
+            'user_id' => $this -> userInfo['user_id'],
+            'type' => $type,
+            'time' => date('Y-m-d H:i:s',time()),
+        ]]);
+    }
+    /**
+     * 发送邮件
+     */
+    public function sentEmail()
+    {
+        return $this ->sentInfo(1);
+    }
+    /**
+     * 发送短信
+     */
+    public function shortMessage()
+    {
+        return $this ->sentInfo(0);
+    }
+    /**
+     * 验证短信或者邮件是否正确
+     * @param int $type 0表示手机短信，1表示邮件
+     */
+    public function checkInfo($type)
+    {
+        $isLogin = $this -> check_user();  //先判断这个用户是否存在
+        if(!empty($isLogin))
+        return $isLogin;
+        //查其最近一起填写验证码时间距离现在时间
+        $result= Db::name('identify_code') //先找到其3s内是否有验证过，如果有，则定为过于频繁
+        ->where([
+            'identify_code_receiver_id' => $this -> userInfo['user_id'],
+            'identify_code_type' => $type,
+        ])
+        ->order('identify_code_create_at','desc') //desc为按照时间最近的顺序给出
+        ->limit(10)
+        ->select();
+
+        if(count($result,0)>=1){//有一条信息，则判其是否在30s内发送过
+            if(strtotime($result[0]['identify_code_last_prove'])+3>time())
+            return $this ->_json(['error'=>'验证码验证间隔不能低于3s','code'=>400]);
+            if(strtotime($result[0]['identify_code_create_at'])+5*60<time())//判断验证码是否过期
+            return $this ->_json(['error'=>'你的验证码已过期','code'=>400]);
+        }else{
+            return $this ->_json(['error'=>'您没有可以验证的验证码','code'=>400]);
+        }
+        //判断结束表示为可以验证验证码,每次验证均把上一次验证码的效果设置为失效
+        if(count($result,0)>=1){ //把验证时间更新为现在，也就是下一次需要在3s后
+            $loss = Db::name('identify_code')
+            ->where([
+                'identify_code_id' => $result['0']['identify_code_id'],
+                'identify_code_type' => $type, //最近一次邮件或者短信，别找错了
+            ])
+            ->update([
+                'identify_code_last_prove' => date('Y-m-d H:i:s',time()),//把最近验证时间更新
+            ]);
+            if(!$loss)
+            return $this ->_json(['error'=>'验证验证码出现错误','code'=>500]);
+        }
+        //判断完就验证
+        if($result[0]['identify_code_content'] != $this -> params['identify_code'])
+        return $this ->_json(['error'=>'验证码错误','code'=>400]);
+        //验证成功后更新个人信息
+        if($type=='0'){
+            $update = Db::name('user')
+            ->where([
+                'user_id' => $result['0']['identify_code_receiver_id'],
+            ])
+            ->update([
+                'user_phone_number' => $result[0]['identify_code_receiver']
+            ]); 
+        }else{
+            $update = Db::name('user')
+            ->where([
+                'user_id' => $result['0']['identify_code_receiver_id'],
+            ])
+            ->update([
+                'user_email' => $result[0]['identify_code_receiver']
+            ]); 
+        }
+        if(!$update)
+        return $this ->_json(['error'=>'验证过程出现未知错误','code'=>500]);
+
+        $modify = Db::name('identify_code')
+            ->where([
+                'identify_code_id' => $result['0']['identify_code_id'],//准确找到这个验证码
+            ])
+            ->update([
+                'identify_code_create_at' => date('Y-m-d H:i:s',time()-5*60),//把创建时间变远，直接过期
+            ]);
+            if(!$modify)
+            return $this ->_json(['error'=>'验证出现错误','code'=>500]);
+
+        return json(['code'=> 200, 'msg' => '更换绑定成功','data'=>
+        [
+            'user_id' => $this -> userInfo['user_id'],
+            'type' => $type,
+            'time' => date('Y-m-d H:i:s',time()),
+        ]]);
+        
+    }
+    /**
+     * 确认手机验证码是否正确
+     */
+    public function checkShortMessage()
+    {
+        return $this -> checkInfo(0);
+    }
+     /**
+      * 确认邮箱验证码是否正确
+      */
+    public function checkEmail()
+    {
+        return $this -> checkInfo(1);
     }
 }

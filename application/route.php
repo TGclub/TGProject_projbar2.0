@@ -23,7 +23,13 @@ Route::post('sentMessage','api/Message/sentMessage');
 Route::get('getAppMessage','api/Message/getAppMessage');
 Route::post('promotePower','api/User/promotePower');
 Route::post('reducePower','api/User/reducePower');
-
+Route::get('SentMessage','api/SentShortMessage/index');
+Route::post('shortMessage','api/Message/shortMessage');
+Route::post('sentShortMessage','api/SentShortMessage/sentShortMessage');
+Route::post('bindPhone','api/User/bindPhone');
+Route::post('sentEmail','api/Message/sentEmail');
+Route::post('checkemail','api/Message/checkemail');
+Route::post('checkShortMessage','api/Message/checkShortMessage');
 
 Route::rule('s2','api/Common/index2');
 Route::rule('Common/index','api/Common/index');

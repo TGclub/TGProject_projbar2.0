@@ -1,1 +1,1465 @@
-666
+object(think\exception\ErrorException)#12 (9) {
+  ["severity":protected]=>
+  int(8)
+  ["data":protected]=>
+  array(0) {
+  }
+  ["message":protected]=>
+  string(32) "Undefined variable: phoneNumbers"
+  ["string":"Exception":private]=>
+  string(0) ""
+  ["code":protected]=>
+  int(0)
+  ["file":protected]=>
+  string(68) "E:\www\htdocs\project_bar\application\api\controller\SentMessage.php"
+  ["line":protected]=>
+  int(38)
+  ["trace":"Exception":private]=>
+  array(8) {
+    [0]=>
+    array(6) {
+      ["file"]=>
+      string(68) "E:\www\htdocs\project_bar\application\api\controller\SentMessage.php"
+      ["line"]=>
+      int(38)
+      ["function"]=>
+      string(8) "appError"
+      ["class"]=>
+      string(11) "think\Error"
+      ["type"]=>
+      string(2) "::"
+      ["args"]=>
+      array(5) {
+        [0]=>
+        int(8)
+        [1]=>
+        string(32) "Undefined variable: phoneNumbers"
+        [2]=>
+        string(68) "E:\www\htdocs\project_bar\application\api\controller\SentMessage.php"
+        [3]=>
+        int(38)
+        [4]=>
+        array(3) {
+          ["ssender"]=>
+          object(Qcloud\Sms\SmsSingleSender)#10 (4) {
+            ["url":"Qcloud\Sms\SmsSingleSender":private]=>
+            string(43) "https://yun.tim.qq.com/v5/tlssmssvr/sendsms"
+            ["appid":"Qcloud\Sms\SmsSingleSender":private]=>
+            int(1400081777)
+            ["appkey":"Qcloud\Sms\SmsSingleSender":private]=>
+            string(32) "7e4845d3bf2b30da4e68a1fcc03a3c26"
+            ["util":"Qcloud\Sms\SmsSingleSender":private]=>
+            object(Qcloud\Sms\SmsSenderUtil)#11 (0) {
+            }
+          }
+          ["params"]=>
+          array(2) {
+            [0]=>
+            string(4) "5678"
+            [1]=>
+            string(1) "3"
+          }
+          ["result"]=>
+          int(555)
+        }
+      }
+    }
+    [1]=>
+    array(4) {
+      ["function"]=>
+      string(5) "index"
+      ["class"]=>
+      string(30) "app\api\controller\SentMessage"
+      ["type"]=>
+      string(2) "->"
+      ["args"]=>
+      array(0) {
+      }
+    }
+    [2]=>
+    array(6) {
+      ["file"]=>
+      string(56) "E:\www\htdocs\project_bar\thinkphp\library\think\App.php"
+      ["line"]=>
+      int(343)
+      ["function"]=>
+      string(10) "invokeArgs"
+      ["class"]=>
+      string(16) "ReflectionMethod"
+      ["type"]=>
+      string(2) "->"
+      ["args"]=>
+      array(2) {
+        [0]=>
+        object(app\api\controller\SentMessage)#5 (10) {
+          ["appid"]=>
+          int(1400081777)
+          ["appkey"]=>
+          string(32) "7e4845d3bf2b30da4e68a1fcc03a3c26"
+          ["phoneNumbers"]=>
+          array(1) {
+            [0]=>
+            string(11) "13227855005"
+          }
+          ["templateId"]=>
+          int(104240)
+          ["smsSign"]=>
+          string(9) "项慕吧"
+          ["view":protected]=>
+          object(think\View)#6 (3) {
+            ["engine"]=>
+            object(think\view\driver\Think)#7 (2) {
+              ["template":"think\view\driver\Think":private]=>
+              object(think\Template)#8 (5) {
+                ["data":protected]=>
+                array(0) {
+                }
+                ["config":protected]=>
+                array(29) {
+                  ["view_path"]=>
+                  string(57) "E:\www\htdocs\project_bar\public/../application/api\view\"
+                  ["view_base"]=>
+                  string(0) ""
+                  ["view_suffix"]=>
+                  string(4) "html"
+                  ["view_depr"]=>
+                  string(1) "\"
+                  ["cache_suffix"]=>
+                  string(3) "php"
+                  ["tpl_deny_func_list"]=>
+                  string(9) "echo,exit"
+                  ["tpl_deny_php"]=>
+                  bool(false)
+                  ["tpl_begin"]=>
+                  string(2) "\{"
+                  ["tpl_end"]=>
+                  string(2) "\}"
+                  ["strip_space"]=>
+                  bool(false)
+                  ["tpl_cache"]=>
+                  bool(true)
+                  ["compile_type"]=>
+                  string(4) "file"
+                  ["cache_prefix"]=>
+                  string(0) ""
+                  ["cache_time"]=>
+                  int(0)
+                  ["layout_on"]=>
+                  bool(false)
+                  ["layout_name"]=>
+                  string(6) "layout"
+                  ["layout_item"]=>
+                  string(13) "{__CONTENT__}"
+                  ["taglib_begin"]=>
+                  string(2) "\{"
+                  ["taglib_end"]=>
+                  string(2) "\}"
+                  ["taglib_load"]=>
+                  bool(true)
+                  ["taglib_build_in"]=>
+                  string(2) "cx"
+                  ["taglib_pre_load"]=>
+                  string(0) ""
+                  ["display_cache"]=>
+                  bool(false)
+                  ["cache_id"]=>
+                  string(0) ""
+                  ["tpl_replace_string"]=>
+                  array(0) {
+                  }
+                  ["tpl_var_identify"]=>
+                  string(5) "array"
+                  ["cache_path"]=>
+                  string(39) "E:\www\htdocs\project_bar\runtime\temp\"
+                  ["taglib_begin_origin"]=>
+                  string(1) "{"
+                  ["taglib_end_origin"]=>
+                  string(1) "}"
+                }
+                ["literal":"think\Template":private]=>
+                array(0) {
+                }
+                ["includeFile":"think\Template":private]=>
+                array(0) {
+                }
+                ["storage":protected]=>
+                object(think\template\driver\File)#9 (0) {
+                }
+              }
+              ["config":protected]=>
+              array(9) {
+                ["view_base"]=>
+                string(0) ""
+                ["view_path"]=>
+                string(57) "E:\www\htdocs\project_bar\public/../application/api\view\"
+                ["view_suffix"]=>
+                string(4) "html"
+                ["view_depr"]=>
+                string(1) "\"
+                ["tpl_cache"]=>
+                bool(true)
+                ["tpl_begin"]=>
+                string(1) "{"
+                ["tpl_end"]=>
+                string(1) "}"
+                ["taglib_begin"]=>
+                string(1) "{"
+                ["taglib_end"]=>
+                string(1) "}"
+              }
+            }
+            ["data":protected]=>
+            array(0) {
+            }
+            ["replace":protected]=>
+            array(5) {
+              ["__ROOT__"]=>
+              string(19) "/project_bar/public"
+              ["__URL__"]=>
+              string(46) "/project_bar/public/index.php/api/sent_message"
+              ["__STATIC__"]=>
+              string(26) "/project_bar/public/static"
+              ["__CSS__"]=>
+              string(30) "/project_bar/public/static/css"
+              ["__JS__"]=>
+              string(29) "/project_bar/public/static/js"
+            }
+          }
+          ["request":protected]=>
+          object(think\Request)#2 (33) {
+            ["method":protected]=>
+            string(4) "POST"
+            ["domain":protected]=>
+            NULL
+            ["url":protected]=>
+            string(41) "/project_bar/public/index.php/SentMessage"
+            ["baseUrl":protected]=>
+            NULL
+            ["baseFile":protected]=>
+            string(29) "/project_bar/public/index.php"
+            ["root":protected]=>
+            string(29) "/project_bar/public/index.php"
+            ["pathinfo":protected]=>
+            string(11) "SentMessage"
+            ["path":protected]=>
+            string(11) "SentMessage"
+            ["routeInfo":protected]=>
+            array(4) {
+              ["rule"]=>
+              array(1) {
+                [0]=>
+                string(11) "SentMessage"
+              }
+              ["route"]=>
+              string(21) "api/SentMessage/index"
+              ["option"]=>
+              array(0) {
+              }
+              ["var"]=>
+              array(0) {
+              }
+            }
+            ["env":protected]=>
+            NULL
+            ["dispatch":protected]=>
+            array(3) {
+              ["type"]=>
+              string(6) "module"
+              ["module"]=>
+              array(3) {
+                [0]=>
+                string(3) "api"
+                [1]=>
+                string(11) "SentMessage"
+                [2]=>
+                string(5) "index"
+              }
+              ["convert"]=>
+              bool(false)
+            }
+            ["module":protected]=>
+            string(3) "api"
+            ["controller":protected]=>
+            string(11) "SentMessage"
+            ["action":protected]=>
+            string(5) "index"
+            ["langset":protected]=>
+            string(5) "zh-cn"
+            ["param":protected]=>
+            array(5) {
+              ["people_number"]=>
+              string(1) "2"
+              ["sent_message_content"]=>
+              string(12) "发送内容"
+              ["people_id"]=>
+              array(1) {
+                [1]=>
+                string(1) "2"
+              }
+              ["project_id"]=>
+              string(1) "5"
+              ["user_reduced_id"]=>
+              string(1) "2"
+            }
+            ["get":protected]=>
+            array(0) {
+            }
+            ["post":protected]=>
+            array(5) {
+              ["people_number"]=>
+              string(1) "2"
+              ["sent_message_content"]=>
+              string(12) "发送内容"
+              ["people_id"]=>
+              array(1) {
+                [1]=>
+                string(1) "2"
+              }
+              ["project_id"]=>
+              string(1) "5"
+              ["user_reduced_id"]=>
+              string(1) "2"
+            }
+            ["request":protected]=>
+            array(0) {
+            }
+            ["route":protected]=>
+            array(0) {
+            }
+            ["put":protected]=>
+            NULL
+            ["session":protected]=>
+            array(0) {
+            }
+            ["file":protected]=>
+            array(0) {
+            }
+            ["cookie":protected]=>
+            array(0) {
+            }
+            ["server":protected]=>
+            array(0) {
+            }
+            ["header":protected]=>
+            array(10) {
+              ["cache-control"]=>
+              string(8) "no-cache"
+              ["postman-token"]=>
+              string(36) "35d4af99-168a-4c39-8c27-130e8fb017ab"
+              ["authorization"]=>
+              string(13) "Bearer yeleng"
+              ["user-agent"]=>
+              string(20) "PostmanRuntime/7.1.1"
+              ["accept"]=>
+              string(3) "*/*"
+              ["host"]=>
+              string(9) "localhost"
+              ["accept-encoding"]=>
+              string(13) "gzip, deflate"
+              ["content-type"]=>
+              string(80) "multipart/form-data; boundary=--------------------------275745167878078175487735"
+              ["content-length"]=>
+              string(3) "637"
+              ["connection"]=>
+              string(10) "keep-alive"
+            }
+            ["mimeType":protected]=>
+            array(12) {
+              ["xml"]=>
+              string(42) "application/xml,text/xml,application/x-xml"
+              ["json"]=>
+              string(62) "application/json,text/x-json,application/jsonrequest,text/json"
+              ["js"]=>
+              string(63) "text/javascript,application/javascript,application/x-javascript"
+              ["css"]=>
+              string(8) "text/css"
+              ["rss"]=>
+              string(19) "application/rss+xml"
+              ["yaml"]=>
+              string(28) "application/x-yaml,text/yaml"
+              ["atom"]=>
+              string(20) "application/atom+xml"
+              ["pdf"]=>
+              string(15) "application/pdf"
+              ["text"]=>
+              string(10) "text/plain"
+              ["image"]=>
+              string(71) "image/png,image/jpg,image/jpeg,image/pjpeg,image/gif,image/webp,image/*"
+              ["csv"]=>
+              string(8) "text/csv"
+              ["html"]=>
+              string(35) "text/html,application/xhtml+xml,*/*"
+            }
+            ["content":protected]=>
+            NULL
+            ["filter":protected]=>
+            string(0) ""
+            ["bind":protected]=>
+            array(0) {
+            }
+            ["input":protected]=>
+            string(0) ""
+            ["cache":protected]=>
+            NULL
+            ["isCheckCache":protected]=>
+            NULL
+          }
+          ["failException":protected]=>
+          bool(false)
+          ["batchValidate":protected]=>
+          bool(false)
+          ["beforeActionList":protected]=>
+          array(0) {
+          }
+        }
+        [1]=>
+        array(0) {
+        }
+      }
+    }
+    [3]=>
+    array(6) {
+      ["file"]=>
+      string(56) "E:\www\htdocs\project_bar\thinkphp\library\think\App.php"
+      ["line"]=>
+      int(602)
+      ["function"]=>
+      string(12) "invokeMethod"
+      ["class"]=>
+      string(9) "think\App"
+      ["type"]=>
+      string(2) "::"
+      ["args"]=>
+      array(2) {
+        [0]=>
+        array(2) {
+          [0]=>
+          object(app\api\controller\SentMessage)#5 (10) {
+            ["appid"]=>
+            int(1400081777)
+            ["appkey"]=>
+            string(32) "7e4845d3bf2b30da4e68a1fcc03a3c26"
+            ["phoneNumbers"]=>
+            array(1) {
+              [0]=>
+              string(11) "13227855005"
+            }
+            ["templateId"]=>
+            int(104240)
+            ["smsSign"]=>
+            string(9) "项慕吧"
+            ["view":protected]=>
+            object(think\View)#6 (3) {
+              ["engine"]=>
+              object(think\view\driver\Think)#7 (2) {
+                ["template":"think\view\driver\Think":private]=>
+                object(think\Template)#8 (5) {
+                  ["data":protected]=>
+                  array(0) {
+                  }
+                  ["config":protected]=>
+                  array(29) {
+                    ["view_path"]=>
+                    string(57) "E:\www\htdocs\project_bar\public/../application/api\view\"
+                    ["view_base"]=>
+                    string(0) ""
+                    ["view_suffix"]=>
+                    string(4) "html"
+                    ["view_depr"]=>
+                    string(1) "\"
+                    ["cache_suffix"]=>
+                    string(3) "php"
+                    ["tpl_deny_func_list"]=>
+                    string(9) "echo,exit"
+                    ["tpl_deny_php"]=>
+                    bool(false)
+                    ["tpl_begin"]=>
+                    string(2) "\{"
+                    ["tpl_end"]=>
+                    string(2) "\}"
+                    ["strip_space"]=>
+                    bool(false)
+                    ["tpl_cache"]=>
+                    bool(true)
+                    ["compile_type"]=>
+                    string(4) "file"
+                    ["cache_prefix"]=>
+                    string(0) ""
+                    ["cache_time"]=>
+                    int(0)
+                    ["layout_on"]=>
+                    bool(false)
+                    ["layout_name"]=>
+                    string(6) "layout"
+                    ["layout_item"]=>
+                    string(13) "{__CONTENT__}"
+                    ["taglib_begin"]=>
+                    string(2) "\{"
+                    ["taglib_end"]=>
+                    string(2) "\}"
+                    ["taglib_load"]=>
+                    bool(true)
+                    ["taglib_build_in"]=>
+                    string(2) "cx"
+                    ["taglib_pre_load"]=>
+                    string(0) ""
+                    ["display_cache"]=>
+                    bool(false)
+                    ["cache_id"]=>
+                    string(0) ""
+                    ["tpl_replace_string"]=>
+                    array(0) {
+                    }
+                    ["tpl_var_identify"]=>
+                    string(5) "array"
+                    ["cache_path"]=>
+                    string(39) "E:\www\htdocs\project_bar\runtime\temp\"
+                    ["taglib_begin_origin"]=>
+                    string(1) "{"
+                    ["taglib_end_origin"]=>
+                    string(1) "}"
+                  }
+                  ["literal":"think\Template":private]=>
+                  array(0) {
+                  }
+                  ["includeFile":"think\Template":private]=>
+                  array(0) {
+                  }
+                  ["storage":protected]=>
+                  object(think\template\driver\File)#9 (0) {
+                  }
+                }
+                ["config":protected]=>
+                array(9) {
+                  ["view_base"]=>
+                  string(0) ""
+                  ["view_path"]=>
+                  string(57) "E:\www\htdocs\project_bar\public/../application/api\view\"
+                  ["view_suffix"]=>
+                  string(4) "html"
+                  ["view_depr"]=>
+                  string(1) "\"
+                  ["tpl_cache"]=>
+                  bool(true)
+                  ["tpl_begin"]=>
+                  string(1) "{"
+                  ["tpl_end"]=>
+                  string(1) "}"
+                  ["taglib_begin"]=>
+                  string(1) "{"
+                  ["taglib_end"]=>
+                  string(1) "}"
+                }
+              }
+              ["data":protected]=>
+              array(0) {
+              }
+              ["replace":protected]=>
+              array(5) {
+                ["__ROOT__"]=>
+                string(19) "/project_bar/public"
+                ["__URL__"]=>
+                string(46) "/project_bar/public/index.php/api/sent_message"
+                ["__STATIC__"]=>
+                string(26) "/project_bar/public/static"
+                ["__CSS__"]=>
+                string(30) "/project_bar/public/static/css"
+                ["__JS__"]=>
+                string(29) "/project_bar/public/static/js"
+              }
+            }
+            ["request":protected]=>
+            object(think\Request)#2 (33) {
+              ["method":protected]=>
+              string(4) "POST"
+              ["domain":protected]=>
+              NULL
+              ["url":protected]=>
+              string(41) "/project_bar/public/index.php/SentMessage"
+              ["baseUrl":protected]=>
+              NULL
+              ["baseFile":protected]=>
+              string(29) "/project_bar/public/index.php"
+              ["root":protected]=>
+              string(29) "/project_bar/public/index.php"
+              ["pathinfo":protected]=>
+              string(11) "SentMessage"
+              ["path":protected]=>
+              string(11) "SentMessage"
+              ["routeInfo":protected]=>
+              array(4) {
+                ["rule"]=>
+                array(1) {
+                  [0]=>
+                  string(11) "SentMessage"
+                }
+                ["route"]=>
+                string(21) "api/SentMessage/index"
+                ["option"]=>
+                array(0) {
+                }
+                ["var"]=>
+                array(0) {
+                }
+              }
+              ["env":protected]=>
+              NULL
+              ["dispatch":protected]=>
+              array(3) {
+                ["type"]=>
+                string(6) "module"
+                ["module"]=>
+                array(3) {
+                  [0]=>
+                  string(3) "api"
+                  [1]=>
+                  string(11) "SentMessage"
+                  [2]=>
+                  string(5) "index"
+                }
+                ["convert"]=>
+                bool(false)
+              }
+              ["module":protected]=>
+              string(3) "api"
+              ["controller":protected]=>
+              string(11) "SentMessage"
+              ["action":protected]=>
+              string(5) "index"
+              ["langset":protected]=>
+              string(5) "zh-cn"
+              ["param":protected]=>
+              array(5) {
+                ["people_number"]=>
+                string(1) "2"
+                ["sent_message_content"]=>
+                string(12) "发送内容"
+                ["people_id"]=>
+                array(1) {
+                  [1]=>
+                  string(1) "2"
+                }
+                ["project_id"]=>
+                string(1) "5"
+                ["user_reduced_id"]=>
+                string(1) "2"
+              }
+              ["get":protected]=>
+              array(0) {
+              }
+              ["post":protected]=>
+              array(5) {
+                ["people_number"]=>
+                string(1) "2"
+                ["sent_message_content"]=>
+                string(12) "发送内容"
+                ["people_id"]=>
+                array(1) {
+                  [1]=>
+                  string(1) "2"
+                }
+                ["project_id"]=>
+                string(1) "5"
+                ["user_reduced_id"]=>
+                string(1) "2"
+              }
+              ["request":protected]=>
+              array(0) {
+              }
+              ["route":protected]=>
+              array(0) {
+              }
+              ["put":protected]=>
+              NULL
+              ["session":protected]=>
+              array(0) {
+              }
+              ["file":protected]=>
+              array(0) {
+              }
+              ["cookie":protected]=>
+              array(0) {
+              }
+              ["server":protected]=>
+              array(0) {
+              }
+              ["header":protected]=>
+              array(10) {
+                ["cache-control"]=>
+                string(8) "no-cache"
+                ["postman-token"]=>
+                string(36) "35d4af99-168a-4c39-8c27-130e8fb017ab"
+                ["authorization"]=>
+                string(13) "Bearer yeleng"
+                ["user-agent"]=>
+                string(20) "PostmanRuntime/7.1.1"
+                ["accept"]=>
+                string(3) "*/*"
+                ["host"]=>
+                string(9) "localhost"
+                ["accept-encoding"]=>
+                string(13) "gzip, deflate"
+                ["content-type"]=>
+                string(80) "multipart/form-data; boundary=--------------------------275745167878078175487735"
+                ["content-length"]=>
+                string(3) "637"
+                ["connection"]=>
+                string(10) "keep-alive"
+              }
+              ["mimeType":protected]=>
+              array(12) {
+                ["xml"]=>
+                string(42) "application/xml,text/xml,application/x-xml"
+                ["json"]=>
+                string(62) "application/json,text/x-json,application/jsonrequest,text/json"
+                ["js"]=>
+                string(63) "text/javascript,application/javascript,application/x-javascript"
+                ["css"]=>
+                string(8) "text/css"
+                ["rss"]=>
+                string(19) "application/rss+xml"
+                ["yaml"]=>
+                string(28) "application/x-yaml,text/yaml"
+                ["atom"]=>
+                string(20) "application/atom+xml"
+                ["pdf"]=>
+                string(15) "application/pdf"
+                ["text"]=>
+                string(10) "text/plain"
+                ["image"]=>
+                string(71) "image/png,image/jpg,image/jpeg,image/pjpeg,image/gif,image/webp,image/*"
+                ["csv"]=>
+                string(8) "text/csv"
+                ["html"]=>
+                string(35) "text/html,application/xhtml+xml,*/*"
+              }
+              ["content":protected]=>
+              NULL
+              ["filter":protected]=>
+              string(0) ""
+              ["bind":protected]=>
+              array(0) {
+              }
+              ["input":protected]=>
+              string(0) ""
+              ["cache":protected]=>
+              NULL
+              ["isCheckCache":protected]=>
+              NULL
+            }
+            ["failException":protected]=>
+            bool(false)
+            ["batchValidate":protected]=>
+            bool(false)
+            ["beforeActionList":protected]=>
+            array(0) {
+            }
+          }
+          [1]=>
+          string(5) "index"
+        }
+        [1]=>
+        array(0) {
+        }
+      }
+    }
+    [4]=>
+    array(6) {
+      ["file"]=>
+      string(56) "E:\www\htdocs\project_bar\thinkphp\library\think\App.php"
+      ["line"]=>
+      int(456)
+      ["function"]=>
+      string(6) "module"
+      ["class"]=>
+      string(9) "think\App"
+      ["type"]=>
+      string(2) "::"
+      ["args"]=>
+      array(3) {
+        [0]=>
+        array(3) {
+          [0]=>
+          string(3) "api"
+          [1]=>
+          string(11) "SentMessage"
+          [2]=>
+          string(5) "index"
+        }
+        [1]=>
+        array(67) {
+          ["app_host"]=>
+          string(0) ""
+          ["app_debug"]=>
+          bool(true)
+          ["app_trace"]=>
+          bool(false)
+          ["app_status"]=>
+          string(0) ""
+          ["app_multi_module"]=>
+          bool(true)
+          ["auto_bind_module"]=>
+          bool(false)
+          ["root_namespace"]=>
+          array(0) {
+          }
+          ["extra_file_list"]=>
+          array(1) {
+            [0]=>
+            string(45) "E:\www\htdocs\project_bar\thinkphp\helper.php"
+          }
+          ["default_return_type"]=>
+          string(4) "html"
+          ["default_ajax_return"]=>
+          string(4) "json"
+          ["default_jsonp_handler"]=>
+          string(11) "jsonpReturn"
+          ["var_jsonp_handler"]=>
+          string(8) "callback"
+          ["default_timezone"]=>
+          string(3) "PRC"
+          ["lang_switch_on"]=>
+          bool(false)
+          ["default_filter"]=>
+          string(0) ""
+          ["default_lang"]=>
+          string(5) "zh-cn"
+          ["class_suffix"]=>
+          bool(false)
+          ["controller_suffix"]=>
+          bool(false)
+          ["default_module"]=>
+          string(5) "index"
+          ["deny_module_list"]=>
+          array(1) {
+            [0]=>
+            string(6) "common"
+          }
+          ["default_controller"]=>
+          string(5) "Index"
+          ["default_action"]=>
+          string(5) "index"
+          ["default_validate"]=>
+          string(0) ""
+          ["empty_controller"]=>
+          string(5) "Error"
+          ["use_action_prefix"]=>
+          bool(false)
+          ["action_suffix"]=>
+          string(0) ""
+          ["controller_auto_search"]=>
+          bool(false)
+          ["var_pathinfo"]=>
+          string(1) "s"
+          ["pathinfo_fetch"]=>
+          array(3) {
+            [0]=>
+            string(14) "ORIG_PATH_INFO"
+            [1]=>
+            string(18) "REDIRECT_PATH_INFO"
+            [2]=>
+            string(12) "REDIRECT_URL"
+          }
+          ["pathinfo_depr"]=>
+          string(1) "/"
+          ["https_agent_name"]=>
+          string(0) ""
+          ["url_html_suffix"]=>
+          string(4) "html"
+          ["url_common_param"]=>
+          bool(false)
+          ["url_param_type"]=>
+          int(0)
+          ["url_route_on"]=>
+          bool(true)
+          ["route_config_file"]=>
+          array(1) {
+            [0]=>
+            string(5) "route"
+          }
+          ["route_complete_match"]=>
+          bool(false)
+          ["url_route_must"]=>
+          bool(false)
+          ["url_domain_deploy"]=>
+          bool(true)
+          ["url_domain_root"]=>
+          string(0) ""
+          ["url_convert"]=>
+          bool(true)
+          ["url_controller_layer"]=>
+          string(10) "controller"
+          ["var_method"]=>
+          string(7) "_method"
+          ["var_ajax"]=>
+          string(5) "_ajax"
+          ["var_pjax"]=>
+          string(5) "_pjax"
+          ["request_cache"]=>
+          bool(false)
+          ["request_cache_expire"]=>
+          NULL
+          ["request_cache_except"]=>
+          array(0) {
+          }
+          ["template"]=>
+          array(8) {
+            ["type"]=>
+            string(5) "Think"
+            ["view_path"]=>
+            string(0) ""
+            ["view_suffix"]=>
+            string(4) "html"
+            ["view_depr"]=>
+            string(1) "\"
+            ["tpl_begin"]=>
+            string(1) "{"
+            ["tpl_end"]=>
+            string(1) "}"
+            ["taglib_begin"]=>
+            string(1) "{"
+            ["taglib_end"]=>
+            string(1) "}"
+          }
+          ["view_replace_str"]=>
+          array(0) {
+          }
+          ["dispatch_success_tmpl"]=>
+          string(56) "E:\www\htdocs\project_bar\thinkphp\tpl\dispatch_jump.tpl"
+          ["dispatch_error_tmpl"]=>
+          string(56) "E:\www\htdocs\project_bar\thinkphp\tpl\dispatch_jump.tpl"
+          ["exception_tmpl"]=>
+          string(58) "E:\www\htdocs\project_bar\thinkphp\tpl\think_exception.tpl"
+          ["error_message"]=>
+          string(33) "页面错误！请稍后再试～"
+          ["show_error_msg"]=>
+          bool(false)
+          ["exception_handle"]=>
+          string(0) ""
+          ["record_trace"]=>
+          bool(false)
+          ["log"]=>
+          array(3) {
+            ["type"]=>
+            string(4) "File"
+            ["path"]=>
+            string(38) "E:\www\htdocs\project_bar\runtime\log\"
+            ["level"]=>
+            array(0) {
+            }
+          }
+          ["trace"]=>
+          array(1) {
+            ["type"]=>
+            string(4) "Html"
+          }
+          ["cache"]=>
+          array(4) {
+            ["type"]=>
+            string(4) "File"
+            ["path"]=>
+            string(40) "E:\www\htdocs\project_bar\runtime\cache\"
+            ["prefix"]=>
+            string(0) ""
+            ["expire"]=>
+            int(0)
+          }
+          ["session"]=>
+          array(5) {
+            ["id"]=>
+            string(0) ""
+            ["var_session_id"]=>
+            string(0) ""
+            ["prefix"]=>
+            string(5) "think"
+            ["type"]=>
+            string(0) ""
+            ["auto_start"]=>
+            bool(true)
+          }
+          ["cookie"]=>
+          array(7) {
+            ["prefix"]=>
+            string(0) ""
+            ["expire"]=>
+            int(0)
+            ["path"]=>
+            string(1) "/"
+            ["domain"]=>
+            string(0) ""
+            ["secure"]=>
+            bool(false)
+            ["httponly"]=>
+            string(0) ""
+            ["setcookie"]=>
+            bool(true)
+          }
+          ["database"]=>
+          array(20) {
+            ["type"]=>
+            string(5) "mysql"
+            ["dsn"]=>
+            string(0) ""
+            ["hostname"]=>
+            string(9) "127.0.0.1"
+            ["database"]=>
+            string(11) "project_bar"
+            ["username"]=>
+            string(4) "root"
+            ["password"]=>
+            string(0) ""
+            ["hostport"]=>
+            string(0) ""
+            ["params"]=>
+            array(0) {
+            }
+            ["charset"]=>
+            string(4) "utf8"
+            ["prefix"]=>
+            string(0) ""
+            ["debug"]=>
+            bool(true)
+            ["deploy"]=>
+            int(0)
+            ["rw_separate"]=>
+            bool(false)
+            ["master_num"]=>
+            int(1)
+            ["slave_no"]=>
+            string(0) ""
+            ["fields_strict"]=>
+            bool(true)
+            ["resultset_type"]=>
+            string(5) "array"
+            ["auto_timestamp"]=>
+            bool(false)
+            ["datetime_format"]=>
+            string(11) "Y-m-d H:i:s"
+            ["sql_explain"]=>
+            bool(false)
+          }
+          ["paginate"]=>
+          array(3) {
+            ["type"]=>
+            string(9) "bootstrap"
+            ["var_page"]=>
+            string(4) "page"
+            ["list_rows"]=>
+            int(15)
+          }
+          ["console"]=>
+          array(3) {
+            ["name"]=>
+            string(13) "Think Console"
+            ["version"]=>
+            string(3) "0.1"
+            ["user"]=>
+            NULL
+          }
+          ["upload_friend"]=>
+          array(5) {
+            ["maxSize"]=>
+            int(5242880)
+            ["rootPath"]=>
+            string(2) "./"
+            ["saveName"]=>
+            array(2) {
+              [0]=>
+              string(6) "uniqid"
+              [1]=>
+              string(0) ""
+            }
+            ["driver"]=>
+            string(5) "Qiniu"
+            ["driverConfig"]=>
+            array(4) {
+              ["secrectKey"]=>
+              string(40) "jzjNiU0bDNhoND0iSW0j33uacWzHa1MwRVliBLNv"
+              ["accessKey"]=>
+              string(40) "WXasSv_MzF-G3qDcX5ZbTJ3m6GLIua7ipxLaQgzc"
+              ["domain"]=>
+              string(25) "p5zfwhgu3.bkt.clouddn.com"
+              ["bucket"]=>
+              string(9) "yelengaaa"
+            }
+          }
+          ["queue"]=>
+          array(1) {
+            ["connector"]=>
+            string(4) "Sync"
+          }
+        }
+        [2]=>
+        bool(false)
+      }
+    }
+    [5]=>
+    array(6) {
+      ["file"]=>
+      string(56) "E:\www\htdocs\project_bar\thinkphp\library\think\App.php"
+      ["line"]=>
+      int(139)
+      ["function"]=>
+      string(4) "exec"
+      ["class"]=>
+      string(9) "think\App"
+      ["type"]=>
+      string(2) "::"
+      ["args"]=>
+      array(2) {
+        [0]=>
+        array(3) {
+          ["type"]=>
+          string(6) "module"
+          ["module"]=>
+          array(3) {
+            [0]=>
+            string(3) "api"
+            [1]=>
+            string(11) "SentMessage"
+            [2]=>
+            string(5) "index"
+          }
+          ["convert"]=>
+          bool(false)
+        }
+        [1]=>
+        array(67) {
+          ["app_host"]=>
+          string(0) ""
+          ["app_debug"]=>
+          bool(true)
+          ["app_trace"]=>
+          bool(false)
+          ["app_status"]=>
+          string(0) ""
+          ["app_multi_module"]=>
+          bool(true)
+          ["auto_bind_module"]=>
+          bool(false)
+          ["root_namespace"]=>
+          array(0) {
+          }
+          ["extra_file_list"]=>
+          array(1) {
+            [0]=>
+            string(45) "E:\www\htdocs\project_bar\thinkphp\helper.php"
+          }
+          ["default_return_type"]=>
+          string(4) "html"
+          ["default_ajax_return"]=>
+          string(4) "json"
+          ["default_jsonp_handler"]=>
+          string(11) "jsonpReturn"
+          ["var_jsonp_handler"]=>
+          string(8) "callback"
+          ["default_timezone"]=>
+          string(3) "PRC"
+          ["lang_switch_on"]=>
+          bool(false)
+          ["default_filter"]=>
+          string(0) ""
+          ["default_lang"]=>
+          string(5) "zh-cn"
+          ["class_suffix"]=>
+          bool(false)
+          ["controller_suffix"]=>
+          bool(false)
+          ["default_module"]=>
+          string(5) "index"
+          ["deny_module_list"]=>
+          array(1) {
+            [0]=>
+            string(6) "common"
+          }
+          ["default_controller"]=>
+          string(5) "Index"
+          ["default_action"]=>
+          string(5) "index"
+          ["default_validate"]=>
+          string(0) ""
+          ["empty_controller"]=>
+          string(5) "Error"
+          ["use_action_prefix"]=>
+          bool(false)
+          ["action_suffix"]=>
+          string(0) ""
+          ["controller_auto_search"]=>
+          bool(false)
+          ["var_pathinfo"]=>
+          string(1) "s"
+          ["pathinfo_fetch"]=>
+          array(3) {
+            [0]=>
+            string(14) "ORIG_PATH_INFO"
+            [1]=>
+            string(18) "REDIRECT_PATH_INFO"
+            [2]=>
+            string(12) "REDIRECT_URL"
+          }
+          ["pathinfo_depr"]=>
+          string(1) "/"
+          ["https_agent_name"]=>
+          string(0) ""
+          ["url_html_suffix"]=>
+          string(4) "html"
+          ["url_common_param"]=>
+          bool(false)
+          ["url_param_type"]=>
+          int(0)
+          ["url_route_on"]=>
+          bool(true)
+          ["route_config_file"]=>
+          array(1) {
+            [0]=>
+            string(5) "route"
+          }
+          ["route_complete_match"]=>
+          bool(false)
+          ["url_route_must"]=>
+          bool(false)
+          ["url_domain_deploy"]=>
+          bool(true)
+          ["url_domain_root"]=>
+          string(0) ""
+          ["url_convert"]=>
+          bool(true)
+          ["url_controller_layer"]=>
+          string(10) "controller"
+          ["var_method"]=>
+          string(7) "_method"
+          ["var_ajax"]=>
+          string(5) "_ajax"
+          ["var_pjax"]=>
+          string(5) "_pjax"
+          ["request_cache"]=>
+          bool(false)
+          ["request_cache_expire"]=>
+          NULL
+          ["request_cache_except"]=>
+          array(0) {
+          }
+          ["template"]=>
+          array(8) {
+            ["type"]=>
+            string(5) "Think"
+            ["view_path"]=>
+            string(0) ""
+            ["view_suffix"]=>
+            string(4) "html"
+            ["view_depr"]=>
+            string(1) "\"
+            ["tpl_begin"]=>
+            string(1) "{"
+            ["tpl_end"]=>
+            string(1) "}"
+            ["taglib_begin"]=>
+            string(1) "{"
+            ["taglib_end"]=>
+            string(1) "}"
+          }
+          ["view_replace_str"]=>
+          array(0) {
+          }
+          ["dispatch_success_tmpl"]=>
+          string(56) "E:\www\htdocs\project_bar\thinkphp\tpl\dispatch_jump.tpl"
+          ["dispatch_error_tmpl"]=>
+          string(56) "E:\www\htdocs\project_bar\thinkphp\tpl\dispatch_jump.tpl"
+          ["exception_tmpl"]=>
+          string(58) "E:\www\htdocs\project_bar\thinkphp\tpl\think_exception.tpl"
+          ["error_message"]=>
+          string(33) "页面错误！请稍后再试～"
+          ["show_error_msg"]=>
+          bool(false)
+          ["exception_handle"]=>
+          string(0) ""
+          ["record_trace"]=>
+          bool(false)
+          ["log"]=>
+          array(3) {
+            ["type"]=>
+            string(4) "File"
+            ["path"]=>
+            string(38) "E:\www\htdocs\project_bar\runtime\log\"
+            ["level"]=>
+            array(0) {
+            }
+          }
+          ["trace"]=>
+          array(1) {
+            ["type"]=>
+            string(4) "Html"
+          }
+          ["cache"]=>
+          array(4) {
+            ["type"]=>
+            string(4) "File"
+            ["path"]=>
+            string(40) "E:\www\htdocs\project_bar\runtime\cache\"
+            ["prefix"]=>
+            string(0) ""
+            ["expire"]=>
+            int(0)
+          }
+          ["session"]=>
+          array(5) {
+            ["id"]=>
+            string(0) ""
+            ["var_session_id"]=>
+            string(0) ""
+            ["prefix"]=>
+            string(5) "think"
+            ["type"]=>
+            string(0) ""
+            ["auto_start"]=>
+            bool(true)
+          }
+          ["cookie"]=>
+          array(7) {
+            ["prefix"]=>
+            string(0) ""
+            ["expire"]=>
+            int(0)
+            ["path"]=>
+            string(1) "/"
+            ["domain"]=>
+            string(0) ""
+            ["secure"]=>
+            bool(false)
+            ["httponly"]=>
+            string(0) ""
+            ["setcookie"]=>
+            bool(true)
+          }
+          ["database"]=>
+          array(20) {
+            ["type"]=>
+            string(5) "mysql"
+            ["dsn"]=>
+            string(0) ""
+            ["hostname"]=>
+            string(9) "127.0.0.1"
+            ["database"]=>
+            string(11) "project_bar"
+            ["username"]=>
+            string(4) "root"
+            ["password"]=>
+            string(0) ""
+            ["hostport"]=>
+            string(0) ""
+            ["params"]=>
+            array(0) {
+            }
+            ["charset"]=>
+            string(4) "utf8"
+            ["prefix"]=>
+            string(0) ""
+            ["debug"]=>
+            bool(true)
+            ["deploy"]=>
+            int(0)
+            ["rw_separate"]=>
+            bool(false)
+            ["master_num"]=>
+            int(1)
+            ["slave_no"]=>
+            string(0) ""
+            ["fields_strict"]=>
+            bool(true)
+            ["resultset_type"]=>
+            string(5) "array"
+            ["auto_timestamp"]=>
+            bool(false)
+            ["datetime_format"]=>
+            string(11) "Y-m-d H:i:s"
+            ["sql_explain"]=>
+            bool(false)
+          }
+          ["paginate"]=>
+          array(3) {
+            ["type"]=>
+            string(9) "bootstrap"
+            ["var_page"]=>
+            string(4) "page"
+            ["list_rows"]=>
+            int(15)
+          }
+          ["console"]=>
+          array(3) {
+            ["name"]=>
+            string(13) "Think Console"
+            ["version"]=>
+            string(3) "0.1"
+            ["user"]=>
+            NULL
+          }
+          ["upload_friend"]=>
+          array(5) {
+            ["maxSize"]=>
+            int(5242880)
+            ["rootPath"]=>
+            string(2) "./"
+            ["saveName"]=>
+            array(2) {
+              [0]=>
+              string(6) "uniqid"
+              [1]=>
+              string(0) ""
+            }
+            ["driver"]=>
+            string(5) "Qiniu"
+            ["driverConfig"]=>
+            array(4) {
+              ["secrectKey"]=>
+              string(40) "jzjNiU0bDNhoND0iSW0j33uacWzHa1MwRVliBLNv"
+              ["accessKey"]=>
+              string(40) "WXasSv_MzF-G3qDcX5ZbTJ3m6GLIua7ipxLaQgzc"
+              ["domain"]=>
+              string(25) "p5zfwhgu3.bkt.clouddn.com"
+              ["bucket"]=>
+              string(9) "yelengaaa"
+            }
+          }
+          ["queue"]=>
+          array(1) {
+            ["connector"]=>
+            string(4) "Sync"
+          }
+        }
+      }
+    }
+    [6]=>
+    array(6) {
+      ["file"]=>
+      string(44) "E:\www\htdocs\project_bar\thinkphp\start.php"
+      ["line"]=>
+      int(19)
+      ["function"]=>
+      string(3) "run"
+      ["class"]=>
+      string(9) "think\App"
+      ["type"]=>
+      string(2) "::"
+      ["args"]=>
+      array(0) {
+      }
+    }
+    [7]=>
+    array(4) {
+      ["file"]=>
+      string(42) "E:\www\htdocs\project_bar\public\index.php"
+      ["line"]=>
+      int(18)
+      ["args"]=>
+      array(1) {
+        [0]=>
+        string(44) "E:\www\htdocs\project_bar\thinkphp\start.php"
+      }
+      ["function"]=>
+      string(7) "require"
+    }
+  }
+  ["previous":"Exception":private]=>
+  NULL
+}
+yes
