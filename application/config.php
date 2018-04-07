@@ -14,6 +14,7 @@ return [
     // | 应用设置
     // +----------------------------------------------------------------------
 
+    'good'=> 555,
     // 应用调试模式
     'app_debug'              => true,
     // 应用Trace
@@ -236,16 +237,4 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
-    'UPLOAD_FRIEND' => array (
-        'maxSize' => 5 * 1024 * 1024,//文件大小
-        'rootPath' => './',
-        'saveName' => array ('uniqid', ''),
-        'driver' => 'Qiniu',
-        'driverConfig' => array (
-                'secrectKey' => 'jzjNiU0bDNhoND0iSW0j33uacWzHa1MwRVliBLNv', 
-                'accessKey' => 'WXasSv_MzF-G3qDcX5ZbTJ3m6GLIua7ipxLaQgzc',
-                'domain' => 'p5zfwhgu3.bkt.clouddn.com',
-                'bucket' => 'yelengaaa',
-        ),
-    ),
 ];
